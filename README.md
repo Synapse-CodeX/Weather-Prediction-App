@@ -54,7 +54,7 @@ Streamlit Visualization
 ## 📂 Project Structure
 
 ```
-bakkhali-weather-forecast/
+Weather-Prediction-App/
 │
 ├── app.py
 ├── predictor.py
@@ -64,8 +64,11 @@ bakkhali-weather-forecast/
 ├── scaler.pkl
 ├── feature_cols.pkl
 ├── targets.pkl
+├── .streamlit
+    └── config.toml
 ├── requirements.txt
 └── README.md
+└── LICENSE
 ```
 
 ---
@@ -75,8 +78,8 @@ bakkhali-weather-forecast/
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/bakkhali-weather-forecast.git
-cd bakkhali-weather-forecast
+git clone https://github.com/yourusername/Weather-Prediction-App.git
+cd Weather-Prediction-App
 ```
 
 Install dependencies:
