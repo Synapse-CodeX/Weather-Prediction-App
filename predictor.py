@@ -51,7 +51,7 @@ def predict_future(df, target_datetime, model_type="ensemble"):
         else:
             x = xgb_model.predict(X_scaled)[0]
             r = rf_model.predict(X_scaled)[0]
-            pred = 0.6*x + 0.4*r
+            pred = 0.2*x + 0.8*r
 
         pred = apply_constraints(pred, pred_time.hour)
 
