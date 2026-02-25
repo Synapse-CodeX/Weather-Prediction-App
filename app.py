@@ -83,7 +83,7 @@ st.set_page_config(page_title="Bakkhali Weather Prediction AI", layout="wide")
 
 st.markdown("""
 <style>
-.big-title { font-size:40px; font-weight:700; color:#00C9A7; }
+.big-title { font-size:60px; font-weight:700; color:#00C9A7; }
 .card { padding:20px; border-radius:15px; background-color:#111827; }
 </style>
 """, unsafe_allow_html=True)
