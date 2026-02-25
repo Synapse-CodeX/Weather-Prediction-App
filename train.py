@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
 
 
-df = pd.read_csv("OUR.csv")   
+df = pd.read_csv("OUR_dataset.csv")   
 df['Datetime'] = pd.to_datetime(df['Datetime'])
 df = df.sort_values('Datetime').reset_index(drop=True)
 
@@ -110,10 +110,7 @@ rf_model.fit(X_scaled, y)
 print("Random Forest trained.")
 
 
-joblib.dump(xgb_model, "model_xgb.pkl")
-joblib.dump(rf_model, "model_rf.pkl")
-joblib.dump(scaler, "scaler.pkl")
-joblib.dump(feature_cols, "feature_cols.pkl")
-joblib.dump(targets, "targets.pkl")
+joblib.dump(xgb_model, "xgboost_model.pkl")
+joblib.dump(rf_model, "random_forest_model.pkl")
 
 print("✅ All models and artifacts saved successfully.")
