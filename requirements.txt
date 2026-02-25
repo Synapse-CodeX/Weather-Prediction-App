@@ -4,4 +4,8 @@ numpy
 scikit-learn
 xgboost
 joblib
+<<<<<<< HEAD
 plotly
+=======
+plotly
+>>>>>>> 5670237e5d521ae03cd8a6aed2ba6c680e5d36d0

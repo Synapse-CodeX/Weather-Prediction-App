@@ -159,4 +159,8 @@ if uploaded_file and models_loaded:
             with st.expander("ℹ️ About this prediction"):
                 st.write(f"**Model used:** {model_choice}")
                 st.write(f"**Prediction time:** {target_datetime}")
+<<<<<<< HEAD
                 st.write(f"**Hours ahead:** {(target_datetime - df['Datetime'].max()).total_seconds() / 3600:.1f} hours")
+=======
+                st.write(f"**Hours ahead:** {(target_datetime - df['Datetime'].max()).total_seconds() / 3600:.1f} hours")
+>>>>>>> 5670237e5d521ae03cd8a6aed2ba6c680e5d36d0
