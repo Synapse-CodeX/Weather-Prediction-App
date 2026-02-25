@@ -38,6 +38,7 @@ def predict_future(df, target_datetime, model_type, xgb_model, rf_model, scaler,
     for step in range(hours_diff):
         pred_time = last_time + pd.Timedelta(hours=step+1)
         
+        # Create ALL features that were used in training
         features = {
             'hour': pred_time.hour,
             'day': pred_time.day,
@@ -45,16 +46,22 @@ def predict_future(df, target_datetime, model_type, xgb_model, rf_model, scaler,
             'dayofweek': pred_time.dayofweek,
             'quarter': pred_time.quarter,
             'dayofyear': pred_time.dayofyear,
-            'hour_sin': np.sin(2*np.pi*pred_time.hour/24),
-            'hour_cos': np.cos(2*np.pi*pred_time.hour/24),
-            'month_sin': np.sin(2*np.pi*pred_time.month/12),
-            'month_cos': np.cos(2*np.pi*pred_time.month/12),
-            'day_sin': np.sin(2*np.pi*pred_time.dayofyear/365),
-            'day_cos': np.cos(2*np.pi*pred_time.dayofyear/365),
+            'hour_sin': np.sin(2 * np.pi * pred_time.hour / 24),
+            'hour_cos': np.cos(2 * np.pi * pred_time.hour / 24),
+            'month_sin': np.sin(2 * np.pi * pred_time.month / 12),
+            'month_cos': np.cos(2 * np.pi * pred_time.month / 12),
+            'day_sin': np.sin(2 * np.pi * pred_time.dayofyear / 365),
+            'day_cos': np.cos(2 * np.pi * pred_time.dayofyear / 365),
             'is_daytime': 1 if 6 <= pred_time.hour <= 18 else 0
         }
         
-        X_pred = pd.DataFrame([features])[feature_cols]
+        # Convert to DataFrame and ensure column order matches feature_cols
+        X_pred = pd.DataFrame([features])
+        
+        # Reindex to match exact feature_cols order (this fills missing columns with 0 if needed)
+        X_pred = X_pred.reindex(columns=feature_cols, fill_value=0)
+        
+        # Scale the features
         X_scaled = scaler.transform(X_pred)
 
         if model_type == "xgb":
