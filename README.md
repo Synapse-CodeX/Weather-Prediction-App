@@ -57,8 +57,8 @@ Streamlit Visualization
 Weather-Prediction-App/
 │
 ├── app.py
-├── model_xgb.pkl
-├── model_rf.pkl
+├── xgboost_model.pkl
+├── random_forest_model.pkl
 ├── scaler.pkl
 ├── feature_cols.pkl
 ├── targets.pkl
