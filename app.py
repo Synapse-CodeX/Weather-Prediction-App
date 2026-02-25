@@ -79,17 +79,120 @@ def predict_future(df, target_datetime, model_type, xgb_model, rf_model, scaler,
     return current_prediction
 
 # Streamlit UI
-st.set_page_config(page_title="Bakkhali Weather Prediction AI", layout="wide")
+st.set_page_config(page_title="Bakkhali Weather Prediction AI", layout="wide", page_icon="🌦")
 
+# Custom CSS for entire app
 st.markdown("""
 <style>
-.big-title { font-size:60px; font-weight:700; color:#00C9A7; }
-.card { padding:20px; border-radius:15px; background-color:#111827; }
+/* Global Styles */
+.stApp {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+/* Header Section */
+.header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    animation: fadeIn 1.5s ease-in;
+}
+
+.main-title {
+    font-size: 52px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.emoji-row {
+    font-size: 40px;
+    text-align: center;
+    margin: 10px 0;
+    letter-spacing: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.location-badge {
+    text-align: center;
+    font-size: 18px;
+    color: #e0e0e0;
+    margin: 15px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.weather-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.weather-stats span {
+    background: rgba(255,255,255,0.05);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Sidebar styling */
+.css-1d391kg {
+    background-color: #1a1a2e;
+}
+
+/* Card styling for results */
+.stDataFrame {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Metric cards */
+.css-1xarl3l {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
 </style>
+
+<div class="header">
+    <div class="emoji-row">🌡️ ☀️ ☁️ 🌧️ 💧 🌬️</div>
+    <h1 class="main-title">🌦 Bakkhali Weather Prediction AI</h1>
+    <div style="text-align: center;">
+        <span class="location-badge">📍 Bakkhali Beach, West Bengal • 7-Parameter Forecast</span>
+    </div>
+    <div class="weather-stats">
+        <span>🤖 ML-Powered</span>
+        <span>⚡ Real-time</span>
+        <span>🎯 Multi-Output</span>
+        <span>🔮 Ensemble Model</span>
+    </div>
+</div>
 """, unsafe_allow_html=True)
-
-st.markdown('<p class="big-title">🌦 Bakkhali Weather Prediction AI</p>', unsafe_allow_html=True)
-
 # Load models
 try:
     xgb_model, rf_model, scaler, feature_cols, targets = load_models()
