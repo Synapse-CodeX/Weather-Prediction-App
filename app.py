@@ -88,7 +88,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-title">🌦 Bakkhali Weather Forecast AI</p>', unsafe_allow_html=True)
+st.markdown('<p class="big-title">🌦 Bakkhali Weather Prediction AI</p>', unsafe_allow_html=True)
 
 # Load models
 try:
