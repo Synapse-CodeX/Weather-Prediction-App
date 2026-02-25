@@ -3,7 +3,7 @@ import pandas as pd
 from predictor import predict_future
 import plotly.express as px
 
-st.set_page_config(page_title="Bakkhali Weather AI", layout="wide")
+st.set_page_config(page_title="Bakkhali Weather Prediction AI", layout="wide")
 
 st.markdown("""
 <style>
@@ -45,7 +45,7 @@ if uploaded_file:
                     "Rain (mm/hr)",
                     "Humidity (%)",
                     "Wind Speed (m/s)",
-                    "Pressure (kPa)"
+                    "Pressure (kPa"
                 ],
                 "Prediction": prediction
             })
