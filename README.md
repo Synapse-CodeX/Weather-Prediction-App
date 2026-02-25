@@ -57,8 +57,6 @@ Streamlit Visualization
 Weather-Prediction-App/
 │
 ├── app.py
-├── predictor.py
-├── train.py
 ├── model_xgb.pkl
 ├── model_rf.pkl
 ├── scaler.pkl
