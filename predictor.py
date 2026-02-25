@@ -2,11 +2,8 @@ import joblib
 import numpy as np
 import pandas as pd
 
-xgb_model = joblib.load("model_xgb.pkl")
-rf_model = joblib.load("model_rf.pkl")
-scaler = joblib.load("scaler.pkl")
-feature_cols = joblib.load("feature_cols.pkl")
-targets = joblib.load("targets.pkl")
+xgb_model = joblib.load("xgboost_model.pkl")
+rf_model = joblib.load("random_forest_model.pkl")
 
 def apply_constraints(pred, hour):
     if hour < 6 or hour > 18:
