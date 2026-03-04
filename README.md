@@ -1,35 +1,97 @@
-# 🌦 Weather Forecast App  
+# 🌦 Bakkhali Weather Prediction AI
 
-An end-to-end **Multi-Output Time Series Weather Forecasting System** built using Machine Learning and deployed as an interactive Streamlit web application.
+<div align="center">
+  
+  ![Python](https://img.shields.io/badge/Python-3.11-blue)
+  ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)
+  ![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red)
+  ![Docker](https://img.shields.io/badge/Docker-24.0-blue)
+  ![XGBoost](https://img.shields.io/badge/XGBoost-2.0-orange)
+  ![License](https://img.shields.io/badge/License-MIT-yellow)
+  
+  **An end-to-end Multi-Output Time Series Weather Forecasting System for Bakkhali Beach, West Bengal**
+  
+</div>
 
-This system predicts future weather conditions for Bakkhali using advanced feature engineering, ensemble modeling, and physical constraint enforcement.
+---
+
+
+## ✨ Features
+
+### 🤖 Machine Learning
+- **Multi-Output Regression**: Predicts 7 weather parameters simultaneously
+- **Ensemble Learning**: Combines XGBoost and Random Forest for superior accuracy
+- **Physical Constraints**: Automatically applies real-world rules (e.g., radiation = 0 at night)
+- **Auto-Retraining**: Weekly automatic model updates with fresh data
+
+### 🌐 API & Backend
+- **RESTful API**: Built with FastAPI, fully documented with Swagger
+- **Async Support**: Handles multiple requests efficiently
+- **Pydantic Validation**: Request/response validation with detailed schemas
+- **Background Tasks**: Non-blocking model training
+
+### 🎨 Frontend
+- **Interactive Dashboard**: Built with Streamlit
+- **Real-time Predictions**: Get forecasts for any future date/time
+- **Visual Analytics**: Interactive charts with Plotly
+- **Responsive Design**: Works on desktop and mobile
+
+### 🐳 DevOps
+- **Docker Support**: Containerized application
+- **Docker Compose**: Orchestrate multiple services
+- **Health Checks**: Automatic service monitoring
+- **Scalable**: Easy to scale horizontally
 
 ---
 
-## 🚀 Project Overview
+## 📁 Project Structure
+weather-prediction-app/
+│
+├── 📂 backend/
+│   ├── __init__.py
+│   ├── main.py                 # FastAPI app with endpoints
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── predictor.py        # Prediction logic
+│   │   ├── trainer.py          # Model training logic
+│   │   └── schemas.py          # Pydantic models
+│   ├── data/
+│   │   ├── __init__.py
+│   │   └── fetcher.py          # Open-Meteo API data fetching
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── features.py         # Feature engineering
+│   │   └── constraints.py      # Physical constraints
+│   └── scheduler/
+│       └── trainer_scheduler.py # Auto-retraining scheduler
+│
+├── 📂 frontend/
+│   ├── app.py                   # Your Streamlit app (fixed)
+│   └── .streamlit/
+│       └── config.toml
+│
+├── 📂 models/                    # Trained model files
+│   ├── random_forest_model.pkl
+│   ├── xgboost_model.pkl
+│   ├── scaler.pkl
+│   ├── feature_cols.pkl
+│   └── targets.pkl
+│
+├── 📂 data/                       # Fetched weather data
+│   └── .gitkeep
+│
+├── 📂 docker/
+│   ├── backend.Dockerfile
+│   ├── frontend.Dockerfile
+│   └── nginx.conf
+│
+├── docker-compose.yml
+├── .env.example
+├── .gitignore
+├── requirements-backend.txt
+├── requirements-frontend.txt
+└── README.md
 
-This project performs:
-
-- 📊 Time-series feature engineering  
-- 🔁 Lag and rolling statistical features  
-- 🌗 Cyclical time encoding (sin/cos transformation)  
-- ⚖ Robust scaling  
-- 🌲 Random Forest & ⚡ XGBoost multi-output regression  
-- 🧠 Ensemble prediction  
-- 🌤 Physical constraint correction  
-- 🌐 Streamlit web deployment  
-
-The system predicts:
-
-- 🌡 Temperature (°C)  
-- ☀ Radiation (W/m²)  
-- ☁ Cloud Coverage (%)  
-- 🌧 Rain (mm/hour)  
-- 💧 Relative Humidity (%)  
-- 🌬 Wind Speed (m/s)  
-- 🧭 Pressure (kPa)  
-
----
 
 ## 🏗 System Architecture
 
@@ -51,25 +113,6 @@ Streamlit Visualization
 
 ---
 
-## 📂 Project Structure
-
-```
-Weather-Prediction-App/
-│
-├── app.py
-├── xgboost_model.pkl
-├── random_forest_model.pkl
-├── scaler.pkl
-├── feature_cols.pkl
-├── targets.pkl
-├── .streamlit
-    └── config.toml
-├── requirements.txt
-└── README.md
-└── LICENSE
-```
-
----
 
 ## ⚙ Installation
 
@@ -180,7 +223,7 @@ Important:
 ### Ensemble Model
 
 ```
-Final Prediction = 0.6 * XGBoost + 0.4 * RandomForest
+Final Prediction = 0.2 * XGBoost + 0.8 * RandomForest
 ```
 
 ---
@@ -210,17 +253,36 @@ Final Prediction = 0.6 * XGBoost + 0.4 * RandomForest
 
 Public URL will be generated automatically.
 
+
 ---
 
 ## 🛠 Tech Stack
 
-- Python  
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- XGBoost  
-- Streamlit  
-- Plotly  
+### **Data Processing**
+- `pandas` - Data manipulation and analysis
+- `numpy` - Numerical computing
+- `scikit-learn` - Feature scaling and preprocessing
+
+### **Machine Learning**
+- `XGBoost` - Gradient boosting framework
+- `Random Forest` - Ensemble learning
+- `joblib` - Model serialization
+
+### **Backend**
+- `FastAPI` - Modern web framework
+- `Pydantic` - Data validation
+- `Uvicorn` - ASGI server
+- `requests` - HTTP client
+
+### **Frontend**
+- `Streamlit` - Web application framework
+- `Plotly` - Interactive visualizations
+- `pandas` - Data handling
+
+### **DevOps**
+- `Docker` - Containerization
+- `Docker Compose` - Multi-container orchestration
+- `schedule` - Task scheduling
 
 ---
 
