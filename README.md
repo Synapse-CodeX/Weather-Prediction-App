@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  ![Python](https://img.shields.io/badge/Python-3.11-blue)
+  ![Python](https://img.shields.io/badge/Python-3.8-blue)
   ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)
   ![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red)
   ![Docker](https://img.shields.io/badge/Docker-24.0-blue)
