@@ -49,35 +49,35 @@ weather-prediction-app/
 │
 ├── 📂 backend/
 │   ├── __init__.py
-│   ├── main.py                 # FastAPI app with endpoints
+│   ├── main.py                 
 │   ├── models/
 │   │   ├── __init__.py
-│   │   ├── predictor.py        # Prediction logic
-│   │   ├── trainer.py          # Model training logic
-│   │   └── schemas.py          # Pydantic models
+│   │   ├── predictor.py        
+│   │   ├── trainer.py          
+│   │   └── schemas.py          
 │   ├── data/
 │   │   ├── __init__.py
-│   │   └── fetcher.py          # Open-Meteo API data fetching
+│   │   └── fetcher.py          
 │   ├── utils/
 │   │   ├── __init__.py
-│   │   ├── features.py         # Feature engineering
-│   │   └── constraints.py      # Physical constraints
+│   │   ├── features.py         
+│   │   └── constraints.py      
 │   └── scheduler/
-│       └── trainer_scheduler.py # Auto-retraining scheduler
+│       └── trainer_scheduler.py
 │
 ├── 📂 frontend/
-│   ├── app.py                   # Your Streamlit app (fixed)
+│   ├── app.py                   
 │   └── .streamlit/
 │       └── config.toml
 │
-├── 📂 models/                    # Trained model files
+├── 📂 models/                    
 │   ├── random_forest_model.pkl
 │   ├── xgboost_model.pkl
 │   ├── scaler.pkl
 │   ├── feature_cols.pkl
 │   └── targets.pkl
 │
-├── 📂 data/                       # Fetched weather data
+├── 📂 data/                       
 │   └── .gitkeep
 │
 ├── 📂 docker/
